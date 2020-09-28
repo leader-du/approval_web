@@ -1,0 +1,142 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		// {
+		//     "path" : "pages/applytype/applytype",
+		//     "style" : {}
+		// },   
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "盛邦报销借款审批系统"
+			}
+		},
+		{
+		    "path" : "pages/applytype/applytype",
+		    "style" : {}
+		},
+	    {
+            "path" : "pages/index/changePwd",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/borrowMoney/borrowMoney",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/applyRefund/applyRefund",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/approvalDetail/approvalDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/myApproval/myApproval",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/updateApproval/updateApproval",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/toApproval/toApproval",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/leaderApprovalDetail/leaderApprovalDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/approvalProgress/approvalProgress",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/completedApproval/completedApproval",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/completedApprovalDetail/completedApprovalDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/admin/manageList",
+            "style" : {}
+        }        
+        ,{
+            "path" : "pages/admin/dept/dept",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/admin/dept/addDept",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/admin/user/user",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/admin/user/addUser",
+		    "style" : {}
+		}
+		,{
+		    "path" : "pages/admin/user/delUser",
+		    "style" : {}
+		}
+       
+		,{
+		    "path" : "pages/admin/approval/delApprovalRecord",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/admin/admin/admin",
+            "style" : {}
+        }
+        
+        ,{
+            "path" : "pages/admin/admin/delAdmin",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/admin/admin/addAdmin",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/admin/user/updateUser",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/admin/user/updateUserDetail",
+            "style" : {}
+        }
+       
+        ,{
+            "path" : "pages/admin/dept/delDept",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/admin/dept/updateDept",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/admin/dept/updateDeptDetail",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "盛邦报销借款审批系统",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

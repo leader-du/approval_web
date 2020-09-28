@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/applytype/applytype",
+    "pages/index/changePwd",
+    "pages/borrowMoney/borrowMoney",
+    "pages/applyRefund/applyRefund",
+    "pages/approvalDetail/approvalDetail",
+    "pages/myApproval/myApproval",
+    "pages/updateApproval/updateApproval",
+    "pages/toApproval/toApproval",
+    "pages/leaderApprovalDetail/leaderApprovalDetail",
+    "pages/approvalProgress/approvalProgress",
+    "pages/completedApproval/completedApproval",
+    "pages/completedApprovalDetail/completedApprovalDetail",
+    "pages/admin/manageList",
+    "pages/admin/dept/dept",
+    "pages/admin/dept/addDept",
+    "pages/admin/user/user",
+    "pages/admin/user/addUser",
+    "pages/admin/user/delUser",
+    "pages/admin/approval/delApprovalRecord",
+    "pages/admin/admin/admin",
+    "pages/admin/admin/delAdmin",
+    "pages/admin/admin/addAdmin",
+    "pages/admin/user/updateUser",
+    "pages/admin/user/updateUserDetail",
+    "pages/admin/dept/delDept",
+    "pages/admin/dept/updateDept",
+    "pages/admin/dept/updateDeptDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "盛邦报销借款审批系统",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

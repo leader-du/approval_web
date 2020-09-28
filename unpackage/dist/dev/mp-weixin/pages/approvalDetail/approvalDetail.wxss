@@ -1,0 +1,24 @@
+
+.box .cu-form-group{	
+	
+	-webkit-box-pack: start;	
+	
+	        justify-content: flex-start;
+	
+	-webkit-justify-content: flex-start;
+}
+.approval{
+	
+	-webkit-flex-wrap: wrap!important;
+	
+	        flex-wrap: wrap!important;
+}
+.cu-tag.cu-tag{
+	
+	margin-left: 0;
+	
+	margin-right: 10rpx;
+	
+	padding: 0 12rpx;
+}
+

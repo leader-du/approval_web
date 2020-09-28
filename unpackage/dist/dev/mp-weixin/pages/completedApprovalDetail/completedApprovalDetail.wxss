@@ -1,0 +1,10 @@
+
+.box .cu-form-group{	
+	
+	-webkit-box-pack: start;	
+	
+	        justify-content: flex-start;
+	
+	-webkit-justify-content: flex-start;
+}
+

@@ -1,0 +1,9 @@
+
+.content {
+	/* background: #3F536E; */
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+
