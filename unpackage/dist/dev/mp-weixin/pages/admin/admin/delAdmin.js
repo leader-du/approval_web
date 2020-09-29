@@ -128,7 +128,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -137,11 +143,104 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      adminList: null };
 
   },
-  methods: {} };exports.default = _default;
+
+  onLoad: function onLoad() {
+
+    this.loadAdmin();
+
+  },
+
+  methods: {
+
+    deleteAdmin: function deleteAdmin(id) {
+
+      var _this = this;
+
+      uni.showModal({
+
+        content: "确定要删除吗?",
+
+        success: function success(rs) {
+
+          if (rs.confirm) {
+
+            uni.request({
+
+              url: _this.$serverUrl + '/user/deleteAdmin',
+
+              method: "POST",
+
+              data: JSON.stringify({ id: id }),
+
+              header: {
+
+                accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+              success: function success(rs) {
+
+                if (rs.data.code == 200) {
+
+                  uni.showModal({
+                    content: "删除成功" });
+
+
+
+                }
+
+                _this.adminList.forEach(function (item, index) {
+
+                  if (item.id == id) {
+
+                    _this.adminList.splice(index, 1);
+
+                    return false;
+
+                  }
+
+                });
+
+              } });
+
+
+          }
+
+        } });
+
+
+
+
+
+
+    },
+
+    loadAdmin: function loadAdmin() {var _this2 = this;
+
+      uni.request({
+
+        url: this.$serverUrl + '/user/getAdminList',
+
+        method: "POST",
+
+        header: {
+
+          accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+        success: function success(rs) {
+
+
+          _this2.adminList = rs.data.data;
+
+        } });
+
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

@@ -122,6 +122,14 @@
             "path" : "pages/admin/dept/updateDeptDetail",
             "style" : {}
         }
+        ,{
+            "path" : "pages/admin/admin/updateAdmin",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/admin/admin/updateAdminDetail",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

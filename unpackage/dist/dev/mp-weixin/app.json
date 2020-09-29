@@ -27,7 +27,9 @@
     "pages/admin/user/updateUserDetail",
     "pages/admin/dept/delDept",
     "pages/admin/dept/updateDept",
-    "pages/admin/dept/updateDeptDetail"
+    "pages/admin/dept/updateDeptDetail",
+    "pages/admin/admin/updateAdmin",
+    "pages/admin/admin/updateAdminDetail"
   ],
   "subPackages": [],
   "window": {

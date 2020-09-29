@@ -1,1 +1,1 @@
-<view></view>
+<view class="padding-xs"><view class="text-center margin-top-xs bg-orange padding">删除管理员</view><block wx:for="{{adminList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view class="cu-form-group margin-top"><view class="text-bold">{{item.chName}}</view><button data-event-opts="{{[['tap',[['deleteAdmin',['$0'],[[['adminList','',index,'id']]]]]]]}}" class="cu-btn bg-red" bindtap="__e">删除</button></view></block></view>

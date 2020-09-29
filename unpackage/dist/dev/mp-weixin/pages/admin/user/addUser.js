@@ -281,47 +281,62 @@ var _default =
 
     },
 
-    checkUname: function checkUname() {
+    isEmail: function isEmail() {
 
       var reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
       if (!reg.test(this.uName)) {
 
+        return false;
+      } else {
+
+        return true;
+      }
+
+    },
+
+    checkUname: function checkUname() {
+
+      if (!this.isEmail()) {
+
         uni.showModal({
           content: "用户名必须是盛邦工作邮箱" });
 
+      } else {
 
-        return;
+        var data = { "uname": this.uName };
+
+        uni.request({
+          url: this.$serverUrl + '/user/checkUserIsExist',
+
+          method: "POST",
+
+          data: JSON.stringify(data),
+
+          header: {
+
+            accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+          success: function success(rs) {
+
+
+            if (rs.data.data) {
+
+              uni.showModal({
+
+                content: "用户名已经存在，请更换!" });
+
+
+
+            }
+
+          } });
+
       }
 
-      var data = { "uname": this.uName };
-
-      uni.request({
-        url: this.$serverUrl + '/user/checkUserIsExist',
-
-        method: "POST",
-
-        data: JSON.stringify(data),
-
-        header: {
-
-          accessToken: uni.getStorageSync('userInfo').accessToken },
 
 
-        success: function success(rs) {
-
-
-          if (rs.data.data) {
-
-            uni.showModal({
-
-              content: "用户名已经存在，请更换!" });
-
-
-
-          }
-
-        } });
 
 
     },
@@ -332,6 +347,15 @@ var _default =
 
         uni.showModal({
           content: "请填写所有用户信息，缺一不可" });
+
+
+        return;
+      }
+
+      if (!this.isEmail()) {
+
+        uni.showModal({
+          content: "用户名必须是盛邦工作邮箱" });
 
 
         return;
@@ -380,7 +404,7 @@ var _default =
               success: function success() {
 
                 uni.navigateTo({
-                  url: "../manageList" });
+                  url: "user" });
 
               } });
 

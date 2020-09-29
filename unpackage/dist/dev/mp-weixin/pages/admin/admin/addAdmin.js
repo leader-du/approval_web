@@ -128,7 +128,20 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -137,11 +150,119 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+
+      uName: null,
+
+      password: "123456",
+
+      chName: null };
 
 
   },
-  methods: {} };exports.default = _default;
+
+
+
+  methods: {
+
+    isExist: function isExist() {
+
+      var data = { "uname": this.uName };
+
+      uni.request({
+        url: this.$serverUrl + '/user/checkUserIsExist',
+
+        method: "POST",
+
+        data: JSON.stringify(data),
+
+        header: {
+
+          accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+        success: function success(rs) {
+
+
+          if (rs.data.data) {
+
+            uni.showModal({
+
+              content: "用户名已经存在，请更换!" });
+
+
+
+          }
+
+        } });
+
+
+
+    },
+
+    saveAdmin: function saveAdmin() {
+
+      if (this.uName == null || this.password == null || this.chName == null) {
+
+        uni.showModal({
+
+          content: "请填写所有用户信息，缺一不可" });
+
+
+
+        return;
+      }
+
+
+
+      var params = {
+
+        "uname": this.uName,
+
+        "password": this.password,
+
+        "chName": this.chName };
+
+
+
+      uni.request({
+        url: this.$serverUrl + '/user/addAdmin',
+
+        method: "POST",
+
+        data: JSON.stringify(params),
+
+        header: {
+
+          accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+        success: function success(rs) {
+
+
+          console.log(rs);
+
+          if (rs.data.data) {
+
+            uni.showModal({
+
+              content: "添加成功",
+
+              success: function success() {
+
+                uni.navigateTo({
+                  url: "admin" });
+
+              } });
+
+
+          }
+
+        } });
+
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

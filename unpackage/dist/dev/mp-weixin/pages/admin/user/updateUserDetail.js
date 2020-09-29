@@ -182,7 +182,7 @@ var _default =
 
       uName: null,
 
-      password: "123456",
+      password: null,
 
       chName: null,
 
@@ -202,7 +202,9 @@ var _default =
 
       status: 0,
 
-      user: null };
+      user: null,
+
+      oldPwd: null };
 
   },
 
@@ -220,18 +222,41 @@ var _default =
 
               _this.password = _this.user.password;
 
+              _this.oldPwd = _this.user.password;
+
               _this.chName = _this.user.chName;
 
               _this.radio = _this.user.status;
 
               _this.setDept();
 
-              _this.setRole();case 12:case "end":return _context.stop();}}}, _callee);}))();
+              _this.setRole();case 13:case "end":return _context.stop();}}}, _callee);}))();
 
 
   },
 
   methods: {
+
+    focus: function focus() {var _this2 = this;
+
+      if (this.password == this.oldPwd) {
+
+        uni.showModal({
+          content: "确定要修改密码吗?",
+
+          success: function success(rs) {
+
+            if (rs.confirm) {
+
+              _this2.password = "";
+            }
+
+          } });
+
+
+      }
+
+    },
 
     updateUser: function updateUser() {
 
@@ -297,13 +322,13 @@ var _default =
 
     },
 
-    setRole: function setRole() {var _this2 = this;
+    setRole: function setRole() {var _this3 = this;
 
       this.roleList.forEach(function (item, index) {
 
-        if (item.roleName == _this2.user.roles[0].roleName) {
+        if (item.roleName == _this3.user.roles[0].roleName) {
 
-          _this2.idx = index;
+          _this3.idx = index;
 
           return;
 
@@ -313,13 +338,13 @@ var _default =
 
     },
 
-    setDept: function setDept() {var _this3 = this;
+    setDept: function setDept() {var _this4 = this;
 
       this.deptList.forEach(function (item, index) {
 
-        if (item.dname == _this3.user.dept.dname) {
+        if (item.dname == _this4.user.dept.dname) {
 
-          _this3.index = index;
+          _this4.index = index;
 
           return;
 

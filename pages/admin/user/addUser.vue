@@ -151,48 +151,63 @@
 				
 			},
 			
-			checkUname(){
+			isEmail(){
 				
 				let reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 				
 				if(!reg.test(this.uName)){
 					
+					return false;
+				}else{
+					
+					return true;
+				}
+				
+			},
+			
+			checkUname(){
+				
+				if(!this.isEmail()){
+					
 					uni.showModal({
 						content:"用户名必须是盛邦工作邮箱"
 					})
+				}else{
 					
-					return;
-				}
-				
-				let data = {"uname":this.uName}
-				
-				uni.request({
-					url:this.$serverUrl + '/user/checkUserIsExist',
+					let data = {"uname":this.uName}
 					
-					method:"POST",	
-									
-					data:JSON.stringify(data),
-					
-					header:{
+					uni.request({
+						url:this.$serverUrl + '/user/checkUserIsExist',
 						
-						accessToken:uni.getStorageSync('userInfo').accessToken
-					},
-					
-					success:(rs) => {			
+						method:"POST",	
+										
+						data:JSON.stringify(data),
 						
-																			
-						if(rs.data.data){
+						header:{
 							
-							uni.showModal({
+							accessToken:uni.getStorageSync('userInfo').accessToken
+						},
+						
+						success:(rs) => {			
+							
+																				
+							if(rs.data.data){
 								
-								content:"用户名已经存在，请更换!"
+								uni.showModal({
+									
+									content:"用户名已经存在，请更换!"
+									
+								})
 								
-							})
+							}
 							
 						}
-						
-					}
-				})
+					})
+				}
+				
+				
+				
+				
 				
 			},
 			
@@ -202,6 +217,15 @@
 					
 					uni.showModal({
 						content:"请填写所有用户信息，缺一不可"
+					})
+					
+					return;
+				}
+				
+				if(!this.isEmail()){
+					
+					uni.showModal({
+						content:"用户名必须是盛邦工作邮箱",						
 					})
 					
 					return;
@@ -250,7 +274,7 @@
 								success() {
 									
 									uni.navigateTo({
-										url:"../manageList"
+										url:"user"
 									})
 								}
 							})

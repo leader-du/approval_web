@@ -4,7 +4,7 @@
 				
 		<button class="cu-btn round bg-blue" @click="addAdmin">添加管理员</button>
 		
-		
+		<button class="cu-btn round bg-blue" @click="updateAdmin">更新管理员</button>
 		
 		<button class="cu-btn round bg-red" @click="delAdmin">删除管理员</button>
 		
@@ -32,12 +32,25 @@
 				
 			},
 			
+			updateAdmin(){
+				
+				uni.navigateTo({
+					
+					url:"updateAdmin"
+					
+				})
+				
+			},
+			
+			
 			delAdmin(){
 				
 				uni.navigateTo({
 					
 					url:"delAdmin"
 				})
+				
+				
 				
 			}
 			
@@ -51,7 +64,7 @@
 		
 		width: 100vw;			
 		
-		margin-top: 20vh;
+		margin-top: 13vh;
 				
 		display: flex;
 		

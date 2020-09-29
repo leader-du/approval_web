@@ -6,7 +6,7 @@
 		</view>
 		<view class="cu-form-group margin-top">
 			<view class="title">密码:</view>
-			<input type="text" v-model="password" disabled></input>
+			<input type="text" v-model="password" @focus="focus"></input>
 		</view>
 		<view class="cu-form-group margin-top">
 			<view class="title">姓名:</view>
@@ -52,7 +52,7 @@
 				
 				uName:null,
 				
-				password:"123456",
+				password:null,
 				
 				chName:null,
 				
@@ -72,7 +72,9 @@
 				
 				status:0,
 				
-				user:null
+				user:null,
+				
+				oldPwd:null
 			}
 		},
 		
@@ -90,6 +92,8 @@
 			
 			this.password = this.user.password;
 			
+			this.oldPwd = this.user.password;
+			
 			this.chName = this.user.chName;			
 			
 			this.radio = this.user.status;
@@ -102,6 +106,27 @@
 		},
 		
 		methods: {		
+			
+			focus(){
+				
+				if(this.password == this.oldPwd){
+				
+					uni.showModal({
+						content:"确定要修改密码吗?",
+						
+						success:(rs) => {
+							
+							if(rs.confirm){
+								
+								this.password = "";
+							}
+							
+						}
+					})
+				
+				}
+				
+			},
 			
 			updateUser(){
 				

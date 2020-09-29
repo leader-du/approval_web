@@ -164,11 +164,24 @@ var _default =
 
     },
 
+    updateAdmin: function updateAdmin() {
+
+      uni.navigateTo({
+
+        url: "updateAdmin" });
+
+
+
+    },
+
+
     delAdmin: function delAdmin() {
 
       uni.navigateTo({
 
         url: "delAdmin" });
+
+
 
 
     } } };exports.default = _default;
