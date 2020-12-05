@@ -42,7 +42,7 @@
 			<view class="cu-list menu margin-top" v-if="approval_leaders.length != 0" >
 				<view class="cu-item" v-for="(leader,index) in approval_leaders" :key='index'>
 					<view class="content">						
-						<text class="text-grey" @click="addLeader(leader)">{{ leader.chName }}--{{ leader.deptName }}</text>
+						<text class="text-grey" @click="addLeader(leader)">{{ leader.chName }}--{{ leader.dept.dname }}</text>
 					</view>
 				</view>
 			</view>
@@ -309,7 +309,7 @@
 							
 							this.approval_leaders = rs.data.data
 							
-							//console.log(this.approval_leaders)
+							console.log(this.approval_leaders)
 							
 						}
 						

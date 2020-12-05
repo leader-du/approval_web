@@ -1,13 +1,13 @@
 
 .box{
 		
-		width: 100vw;	
-			
-		height: 100vh;		
+		width: 100vw;			
+		
+		margin-top: 5vh;
 				
-		display: -webkit-box;		
+		display: -webkit-box;
 				
-		display: -webkit-flex;		
+		display: -webkit-flex;
 				
 		display: flex;
 		
@@ -26,5 +26,7 @@
 		width: 60vw;
 		
 		height: 100rpx;
+		
+		margin-top: 5vh;
 }
 

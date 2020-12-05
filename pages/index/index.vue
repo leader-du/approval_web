@@ -34,6 +34,7 @@
 			}
 		},
 		
+		
 		computed:{
 			
 			...mapState(['userInfo'])
@@ -63,15 +64,17 @@
 					
 					header:{
 						
-						"Content-Type":"application/json"  
+						// "Content-Type":"application/json"  
 						
-					},
+						'content-type': 'application/x-www-form-urlencoded'
+						
+					},  
 					
 					method:'POST',  
 					
 					success(rs) {
 						
-						console.log(rs);
+						
 						
 						if(rs.data.code == 200){
 							

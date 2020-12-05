@@ -173,6 +173,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
   },
 
+
   computed: _objectSpread({},
 
   (0, _vuex.mapState)(['userInfo'])),
@@ -202,7 +203,9 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
         header: {
 
-          "Content-Type": "application/json" },
+          // "Content-Type":"application/json"  
+
+          'content-type': 'application/x-www-form-urlencoded' },
 
 
 
@@ -210,7 +213,7 @@ var _vuex = __webpack_require__(/*! vuex */ 12);function ownKeys(object, enumera
 
         success: function success(rs) {
 
-          console.log(rs);
+
 
           if (rs.data.code == 200) {
 

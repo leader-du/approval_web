@@ -128,7 +128,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -137,11 +145,72 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+
+      times: [30, 45, 60],
+
+      days: 0,
+
+      index: 0 };
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+
+    PickerChange: function PickerChange(e) {
+
+      this.index = e.detail.value;
+
+      this.days = this.times[e.detail.value];
+
+    },
+
+    deleteApproval: function deleteApproval() {
+
+      var _this = this;
+
+      uni.showModal({
+
+        content: "确定要删除该时间段记录吗?",
+
+        success: function success(rs) {
+
+          if (rs.confirm) {
+
+            uni.request({
+              url: _this.$serverUrl + '/record/adminDeleteRecord',
+
+              method: "POST",
+
+              data: JSON.stringify({ days: 1 }), //测试，最后要改成下面的
+
+              //data:JSON.stringify({days:_this.days}),
+
+              header: {
+
+                accessToken: uni.getStorageSync('userInfo').accessToken },
+
+
+              success: function success(rs) {
+
+                if (rs.data.code == 200) {
+
+                  uni.showModal({
+                    content: "删除成功!" });
+
+
+                }
+
+              } });
+
+
+          }
+
+        } });
+
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

@@ -2,9 +2,9 @@
 	<view class="margin-top">
 		<view>		
 			<view  class="box">
-				<button v-if="approvalList != null" class="inner"  v-for="(item,index) in approvalList" :key="index" type="primary" @click="toDetail(index)">{{ item.approvalReason }}</button>
-				<button v-if="approvalList == null" type="warn" >您没有任何的审批</button>
-			</view>
+				<button v-if="approvalList != null"   v-for="(item,index) in approvalList" :key="index"  class="inner cu-btn round bg-blue" @click="toDetail(index)">{{ item.approvalReason }}</button>
+				<button v-if="approvalList == null" class="cu-btn round bg-orange" >您没有任何的审批</button>
+			</view>  
 			
 		</view>
 		
@@ -34,32 +34,7 @@
 			
 			this.loadData();
 			
-		},
-		
-		// beforeMount(){
-			
-			
-		// 	this.loadData();
-			
-		// 	this.flag = true;
-			
-		// },
-		
-		// onHide(){
-			
-		// 	this.flag = false;
-			
-		// },
-		
-		// onShow(){
-			
-		// 	if(!this.flag){
-				
-		// 		this.loadData();			
-				
-		// 	}
-			
-		// },
+		},	
 		
 		methods: {
 			
@@ -119,9 +94,9 @@
 <style>
 .box{
 		
-		width: 100vw;	
-			
-		height: 100vh;		
+		width: 100vw;			
+		
+		margin-top: 5vh;
 				
 		display: flex;
 		
@@ -136,6 +111,8 @@
 		width: 60vw;
 		
 		height: 100upx;
+		
+		margin-top: 5vh;
 		
 	}
 </style>

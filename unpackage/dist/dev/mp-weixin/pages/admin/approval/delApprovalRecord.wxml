@@ -1,1 +1,1 @@
-<view></view>
+<view class="padding"><view class="cu-form-group margin-top"><view class="title">请选择时间段:</view><picker value="{{index}}" range="{{times}}" data-event-opts="{{[['change',[['PickerChange',['$event']]]]]}}" bindchange="__e"><view class="picker">{{'删除'+times[index]+'天内的记录'}}</view></picker></view><button class="margin-top" type="warn" data-event-opts="{{[['tap',[['deleteApproval',['$event']]]]]}}" bindtap="__e">删除审批记录</button></view>

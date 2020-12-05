@@ -7,5 +7,9 @@
 	
 	        justify-content: start!important;
 }
+.cu-btn{
+	
+	margin-left: 30rpx;
+}
 		
 

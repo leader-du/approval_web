@@ -168,31 +168,6 @@ var _default =
 
   },
 
-  // beforeMount(){
-
-
-  // 	this.loadData();
-
-  // 	this.flag = true;
-
-  // },
-
-  // onHide(){
-
-  // 	this.flag = false;
-
-  // },
-
-  // onShow(){
-
-  // 	if(!this.flag){
-
-  // 		this.loadData();			
-
-  // 	}
-
-  // },
-
   methods: {
 
     loadData: function loadData() {var _this = this;

@@ -1,7 +1,7 @@
 <template>
 	<view class="box">
-		<button v-if="approvalList.length != 0" v-for="(item,index) in approvalList" :key="index" type="primary" @click="toLeaderApprovalDetail(index)">{{ item.user.dept.dname }}--{{ item.user.chName }}--{{ item.approvalReason }}</button>		
-		<button v-if="approvalList.length == 0" type="warn">没有需要您审批的申请</button>
+		<button class="cu-btn round bg-blue" v-if="approvalList.length != 0" v-for="(item,index) in approvalList" :key="index"  @click="toLeaderApprovalDetail(index)">{{ item.user.dept.dname }}--{{ item.user.chName }}--{{ item.approvalReason }}</button>		
+		<button class="cu-btn round bg-orange" v-if="approvalList.length == 0" >没有需要您审批的申请</button>
 	</view>
 </template>
 
@@ -82,10 +82,10 @@
 <style>
 .box{
 		
-		width: 100vw;	
-			
-		height: 100vh;		
+		width: 100vw;			
 		
+		margin-top: 5vh;
+				
 		display: flex;
 		
 		justify-content: center;
@@ -96,10 +96,11 @@
 	
 	.box button{
 		
-		/* width: 60vw; */
+		width: 90vw;
 		
 		height: 100upx;
 		
+		margin-top: 5vh;
 		
 	}
 </style>

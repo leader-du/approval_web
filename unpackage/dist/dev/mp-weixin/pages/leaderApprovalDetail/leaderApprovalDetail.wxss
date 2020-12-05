@@ -7,4 +7,24 @@
 	
 	-webkit-justify-content: flex-start;
 }
+.file{
+	
+	-webkit-box-orient: vertical!important;
+	
+	-webkit-box-direction: normal!important;
+	
+	-webkit-flex-direction: column!important;
+	
+	        flex-direction: column!important;	
+	
+	-webkit-box-pack: start!important;	
+	
+	-webkit-justify-content: flex-start!important;	
+	
+	        justify-content: flex-start!important;
+}
+.file view{
+	
+	text-decoration: underline;
+}
 

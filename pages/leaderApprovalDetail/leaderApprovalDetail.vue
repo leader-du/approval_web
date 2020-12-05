@@ -19,7 +19,14 @@
 			<view class="title">备注</view>
 			<view>{{ approvalData.approvalRemark }}</view>
 		</view>
-		
+		<view v-if="fileList != null" class="cu-bar bg-white margin-top">
+			<view class="action">
+				上传文件列表
+			</view>					
+		</view>
+		<view class="file bg-white margin-top margin-bottom padding-top-xs padding-bottom-xs">
+			<view v-for="(item,index) in fileList" :key="index" class="margin-bottom text-bold text-blue" @click="downLoadFile(item.approvalFileUrl)">{{ item.approvalFileName }}</view>
+		</view>
 		<view class="cu-bar bg-white margin-top">
 			<view class="action">
 				审批凭证
@@ -65,6 +72,8 @@
 				approvalData:null,
 				approval_user_remark:null,
 				imgUrls:null  ,//审批图片路径列表  需带上服务器路径
+				fileList:null ,// 文件列表
+				path:null // 存储路径
 				
 			}
 		},
@@ -84,9 +93,64 @@
 				
 			})
 			
+			this.fileList = this.approvalData.approvalFileList.map((val,index) => {
+				
+				return {
+					
+						approvalFileUrl:this.$addUrl + val.approvalFileUrl,
+						
+						approvalFileName:val.approvalFileName
+					};
+				
+			})
+			
 		},
 		
 		methods: {
+			
+			//下载文件
+			
+			downLoadFile(url){
+				
+				console.log(11111)
+				
+				uni.downloadFile({
+					
+					url:url,
+					
+					success:(data) => {
+						
+						if (data.statusCode === 200) {
+							//文件保存到本地
+							uni.saveFile({
+								tempFilePath: data.tempFilePath, //临时路径
+								success: function(res) {
+									uni.showToast({
+										icon: 'none',
+										mask: true,
+										title: '文件已保存：' + res.savedFilePath, //保存路径
+										duration: 3000,
+									});
+									setTimeout(() => {
+										//打开文档查看
+										uni.openDocument({
+											filePath: res.savedFilePath,
+											success: function(res) {
+												// console.log('打开文档成功');
+											}
+										});
+									}, 3000)
+								}
+							});
+						}
+						
+					}
+						
+					
+					
+				})
+				
+			},
 			
 			toApprovalProgress(){
 				
@@ -186,6 +250,20 @@
 	
 	-webkit-justify-content: flex-start;
 
+	
+}
+
+.file{
+	
+	flex-direction: column!important;	
+	
+	justify-content: flex-start!important;
+		
+}
+
+.file view{
+	
+	text-decoration: underline;
 	
 }
 </style>

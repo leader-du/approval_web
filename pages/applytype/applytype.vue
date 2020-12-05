@@ -1,10 +1,10 @@
 <template>
 	<view class="box">
-		<button class="margin-top" type="primary" @click="toMyApproval">我申请的审批</button>
-		<button v-if="isShow" type="primary" @click="toApproval">需要处理的审批</button>
-		<button v-if="isFinance" type="primary" @click="toCompletedApproval">查看已完成的审批</button>
-		<button type="primary" @click="applyRefund">报销审批</button>
-		<button type="primary" @click="borrowMoney">借款审批</button>
+		<button class="cu-btn round bg-blue"   @click="toMyApproval">我申请的审批</button>
+		<button class="cu-btn round bg-blue" v-if="isShow"   @click="toApproval">需要处理的审批</button>
+		<button class="cu-btn round bg-green" v-if="isFinance"   @click="toCompletedApproval">查看已完成的审批</button>
+		<button class="cu-btn round bg-blue"   @click="applyRefund">报销审批</button>
+		<button class="cu-btn round bg-blue"   @click="borrowMoney">借款审批</button>
 	</view>
 </template>
 
@@ -43,13 +43,7 @@
 			})
 			
 			
-			
-			
-			
-			
 			//查询个人审批详情
-			
-			
 			
 			//查询需要我审批的申请
 			
@@ -114,14 +108,12 @@
 </script>
 
 <style>
-	.box{
+.box{
 		
-		width: 100vw;	
-			
-		height: 100vh;
+		width: 100vw;			
 		
-		/* padding-top: 30vh; */
-		
+		margin-top: 3vh;
+				
 		display: flex;
 		
 		justify-content: center;
@@ -136,9 +128,7 @@
 		
 		height: 100upx;
 		
-		/* margin: 5upx; */
-		
-		/* align-items:space-between; */
+		margin-top: 8vh;
 		
 	}
 </style>

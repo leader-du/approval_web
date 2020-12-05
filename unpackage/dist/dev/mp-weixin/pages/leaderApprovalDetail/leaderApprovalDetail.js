@@ -209,6 +209,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -217,7 +224,9 @@ var _default =
       index: 0,
       approvalData: null,
       approval_user_remark: null,
-      imgUrls: null //审批图片路径列表  需带上服务器路径
+      imgUrls: null, //审批图片路径列表  需带上服务器路径
+      fileList: null, // 文件列表
+      path: null // 存储路径
     };
 
   },
@@ -237,9 +246,64 @@ var _default =
 
     });
 
+    this.fileList = this.approvalData.approvalFileList.map(function (val, index) {
+
+      return {
+
+        approvalFileUrl: _this.$addUrl + val.approvalFileUrl,
+
+        approvalFileName: val.approvalFileName };
+
+
+    });
+
   },
 
   methods: {
+
+    //下载文件
+
+    downLoadFile: function downLoadFile(url) {
+
+      console.log(11111);
+
+      uni.downloadFile({
+
+        url: url,
+
+        success: function success(data) {
+
+          if (data.statusCode === 200) {
+            //文件保存到本地
+            uni.saveFile({
+              tempFilePath: data.tempFilePath, //临时路径
+              success: function success(res) {
+                uni.showToast({
+                  icon: 'none',
+                  mask: true,
+                  title: '文件已保存：' + res.savedFilePath, //保存路径
+                  duration: 3000 });
+
+                setTimeout(function () {
+                  //打开文档查看
+                  uni.openDocument({
+                    filePath: res.savedFilePath,
+                    success: function success(res) {
+                      // console.log('打开文档成功');
+                    } });
+
+                }, 3000);
+              } });
+
+          }
+
+        } });
+
+
+
+
+
+    },
 
     toApprovalProgress: function toApprovalProgress() {
 
